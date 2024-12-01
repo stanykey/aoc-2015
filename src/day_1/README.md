@@ -25,3 +25,7 @@ For example:
 - `)))` and `)())())` both result in floor `-3`.
 
 To **what floor** do the instructions take Santa?
+
+Your puzzle answer was `232`.
+
+*__The first half of this puzzle is complete! It provides one gold star: *__*
