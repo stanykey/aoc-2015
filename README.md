@@ -5,7 +5,7 @@ Language of choice: `Python 3.12`
 ---
 ## Puzzles
 
-- [ ] Day 1
+- [x] Day 1: Not Quite Lisp
 - [ ] Day 2
 - [ ] Day 3
 - [ ] Day 4
