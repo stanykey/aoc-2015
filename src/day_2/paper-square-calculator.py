@@ -18,6 +18,10 @@ class Prism:
     def square(self) -> int:
         return 2 * self.length * self.width + 2 * self.width * self.height + 2 * self.height * self.length
 
+    @property
+    def volume(self) -> int:
+        return self.length * self.width * self.height
+
 
 def load_prisms(file_path: Path) -> list[Prism]:
     with file_path.open("r") as file:
@@ -32,12 +36,20 @@ def calculate_paper_for_boxing(prism: Prism) -> int:
     return prism.square + calculate_slack_size(prism)
 
 
+def calculate_ribbon_size(prism: Prism) -> int:
+    min_perimeter = 2 * min(prism.length + prism.width, prism.length + prism.height, prism.width + prism.height)
+    return min_perimeter + prism.volume
+
+
 def main() -> None:
     prisms = load_prisms(Path("input.data"))
     # print(*prisms, sep="\n")
 
     paper_required = sum(calculate_paper_for_boxing(prism) for prism in prisms)
     print(f"Elves are required to order {paper_required} of wrapping paper")
+
+    ribbon_required = sum(calculate_ribbon_size(prism) for prism in prisms)
+    print(f"Elves are required to order {ribbon_required} feet of ribbon")
 
 
 if __name__ == "__main__":
