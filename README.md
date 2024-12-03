@@ -9,7 +9,7 @@ Language of choice: `Python 3.12`
 - [x] Day 2: I Was Told There Would Be No Math
 - [x] Day 3: Perfectly Spherical Houses in a Vacuum
 - [x] Day 4: The Ideal Stocking Stuffer
-- [ ] Day 5
+- [ ] Day 5: Doesn't He Have Intern-Elves For This?
 - [ ] Day 6
 - [ ] Day 7
 - [ ] Day 8
