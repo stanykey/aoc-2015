@@ -18,3 +18,7 @@ Your puzzle input is `yzbqklnj`
 Your puzzle answer was `282749`.
 
 *__The first half of this puzzle is complete! It provides one gold star: *__*
+
+## Part Two
+
+Now find one that starts with six zeroes.
