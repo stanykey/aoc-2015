@@ -35,3 +35,7 @@ For example:
 - `ieodomkazucvgmuy` is naughty because it has a repeating letter with one between (`odo`), but no pair that appears twice.
 
 How many strings are nice under these new rules?
+
+Your puzzle answer was `51`.
+
+*__Both parts of this puzzle are complete! They provide two gold stars: **__*
