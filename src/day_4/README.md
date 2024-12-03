@@ -22,3 +22,7 @@ Your puzzle answer was `282749`.
 ## Part Two
 
 Now find one that starts with six zeroes.
+
+Your puzzle answer was `9962624`.
+
+*__Both parts of this puzzle are complete! They provide two gold stars: **__*

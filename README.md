@@ -8,7 +8,7 @@ Language of choice: `Python 3.12`
 - [x] Day 1: Not Quite Lisp
 - [x] Day 2: I Was Told There Would Be No Math
 - [x] Day 3: Perfectly Spherical Houses in a Vacuum
-- [ ] Day 4: The Ideal Stocking Stuffer
+- [x] Day 4: The Ideal Stocking Stuffer
 - [ ] Day 5
 - [ ] Day 6
 - [ ] Day 7

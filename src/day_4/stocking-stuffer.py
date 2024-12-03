@@ -1,7 +1,7 @@
 from hashlib import md5
 
 
-def mine_coins(secret_key: str, zeroes: int = 5) -> int:
+def mine_coins(secret_key: str, *, zeroes: int = 5) -> int:
     prefix = "0" * zeroes  # Create a string of the required number of leading zeroes
     number = 0
 
@@ -15,7 +15,11 @@ def mine_coins(secret_key: str, zeroes: int = 5) -> int:
 
 def main() -> None:
     secret_key = "yzbqklnj"
-    answer = mine_coins(secret_key)
+
+    answer = mine_coins(secret_key, zeroes=5)
+    print(f"Answer: {answer}")
+
+    answer = mine_coins(secret_key, zeroes=6)
     print(f"Answer: {answer}")
 
 
