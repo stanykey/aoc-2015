@@ -7,7 +7,7 @@ Language of choice: `Python 3.12`
 
 - [x] Day 1: Not Quite Lisp
 - [x] Day 2: I Was Told There Would Be No Math
-- [ ] Day 3
+- [ ] Day 3: Perfectly Spherical Houses in a Vacuum
 - [ ] Day 4
 - [ ] Day 5
 - [ ] Day 6

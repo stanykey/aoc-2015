@@ -13,3 +13,7 @@ For example:
 - `>` delivers presents to 2 houses: one at the starting location, and one to the east.
 - `^>v<` delivers presents to 4 houses in a square, including twice to the house at his starting/ending location.
 - `^v^v^v^v^v` delivers a bunch of presents to some very lucky children at only 2 houses.
+
+Your puzzle answer was `2081`.
+
+*__The first half of this puzzle is complete! It provides one gold star: *__*
