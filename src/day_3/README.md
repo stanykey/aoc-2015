@@ -31,3 +31,7 @@ For example:
 - `^v` delivers presents to `3` houses, because Santa goes north, and then Robo-Santa goes south.
 - `^>v<` now delivers presents to `3` houses, and Santa and Robo-Santa end up back where they started.
 - `^v^v^v^v^v` now delivers presents to `11` houses, with Santa going one direction and Robo-Santa going the other.
+
+Your puzzle answer was `2341`.
+
+*__Both parts of this puzzle are complete! They provide two gold stars: **__*

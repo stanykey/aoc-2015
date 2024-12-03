@@ -1,3 +1,4 @@
+from itertools import cycle
 from pathlib import Path
 
 
@@ -6,30 +7,34 @@ def load_route(file_path: Path) -> str:
         return file.read().strip()
 
 
-def get_unique_locations(route: str) -> set[tuple[int, int]]:
-    x, y = 0, 0
-    locations = {(x, y)}
+def get_unique_houses(route: str, santa_count: int = 1) -> set[tuple[int, int]]:
+    houses = {(0, 0)}
+
+    tracker = [{"x": 0, "y": 0} for _ in range(santa_count)]
+    santa_cycle = cycle(range(santa_count))
 
     for direction in route:
+        current_santa = tracker[next(santa_cycle)]
         match direction:
             case "^":  # north
-                y += 1
+                current_santa["y"] += 1
             case "v":  # south
-                y -= 1
+                current_santa["y"] -= 1
             case ">":  # east
-                x += 1
+                current_santa["x"] += 1
             case "<":  # west
-                x -= 1
-        locations.add((x, y))
+                current_santa["x"] -= 1
+        houses.add((current_santa["x"], current_santa["y"]))
 
-    return locations
+    return houses
 
 
 def main() -> None:
     route = load_route(Path("input.data"))
 
-    locations = get_unique_locations(route)
-    print(f"There are {len(locations)} houses receive at least one present")
+    for santa_count in range(1, 3):
+        houses = get_unique_houses(route, santa_count)
+        print(f"There are {len(houses)} houses receive at least one present with {santa_count} of Santa")
 
 
 if __name__ == "__main__":
