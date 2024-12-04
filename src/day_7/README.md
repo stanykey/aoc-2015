@@ -57,3 +57,7 @@ y: 456
 
 In little Bobby's kit's instructions booklet (provided as your puzzle input), what signal is ultimately provided to
 **wire a**?
+
+Your puzzle answer was `956`.
+
+*__The first half of this puzzle is complete! It provides one gold star: *__*
