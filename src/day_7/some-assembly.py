@@ -51,6 +51,10 @@ def main() -> None:
     result = evaluate(requested_wire, circuit, {}) if requested_wire in circuit else 0
     print(f"The signal to wire {requested_wire} is: {result}")
 
+    circuit["b"] = str(result)
+    result = evaluate(requested_wire, circuit, {}) if requested_wire in circuit else 0
+    print(f"The signal to wire {requested_wire} is: {result}")
+
 
 if __name__ == "__main__":
     main()

@@ -11,7 +11,7 @@ Language of choice: `Python 3.12`
 - [x] Day 4: The Ideal Stocking Stuffer
 - [x] Day 5: Doesn't He Have Intern-Elves For This?
 - [x] Day 6: Probably a Fire Hazard
-- [ ] Day 7: Some Assembly Required
+- [x] Day 7: Some Assembly Required
 - [ ] Day 8
 - [ ] Day 9
 - [ ] Day 10
