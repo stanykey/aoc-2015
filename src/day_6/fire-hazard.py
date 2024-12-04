@@ -1,3 +1,4 @@
+from collections import defaultdict
 from dataclasses import dataclass
 from enum import StrEnum
 from enum import unique
@@ -6,6 +7,8 @@ from typing import Self
 
 GRID_WIDTH = 1000
 GRID_HEIGHT = 1000
+
+type LightMap = dict[tuple[int, int], int]
 
 
 @unique
@@ -49,32 +52,56 @@ def load_instructions(file_path: Path) -> list[Instruction]:
         return [Instruction.from_str(record) for record in file]
 
 
-def install_lighting(instructions: list[Instruction]) -> list[list[bool]]:
-    lights = [[False for x in range(GRID_WIDTH)] for _ in range(GRID_HEIGHT)]
+def install_simple_lighting(instructions: list[Instruction]) -> LightMap:
+    lights: LightMap = defaultdict(int)
+
     for instruction in instructions:
         for y in range(instruction.y1, instruction.y2 + 1):
             for x in range(instruction.x1, instruction.x2 + 1):
+                coord = (x, y)
                 match instruction.action:
                     case Action.TURN_ON:
-                        lights[y][x] = True
+                        lights[coord] = 1
                     case Action.TURN_OFF:
-                        lights[y][x] = False
+                        lights[coord] = 0
                     case Action.TOGGLE:
-                        lights[y][x] = not lights[y][x]
+                        lights[coord] = 0 if lights[coord] else 1
     return lights
 
 
-def count_light_lit(lights: list[list[bool]]) -> int:
-    return sum(cell for line in lights for cell in line)
+def install_lighting_with_brightness(instructions: list[Instruction]) -> LightMap:
+    lights: LightMap = defaultdict(int)
+
+    for instruction in instructions:
+        for y in range(instruction.y1, instruction.y2 + 1):
+            for x in range(instruction.x1, instruction.x2 + 1):
+                coord = (x, y)
+                match instruction.action:
+                    case Action.TURN_ON:
+                        lights[coord] += 1
+                    case Action.TURN_OFF:
+                        lights[coord] = max(0, lights[coord] - 1)
+                    case Action.TOGGLE:
+                        lights[coord] += 2
+
+    return lights
+
+
+def get_total_brightness(lights: LightMap) -> int:
+    return sum(lights.values())
 
 
 def main() -> None:
     instructions = load_instructions(Path("input.data"))
     print(*instructions, sep="\n")
 
-    lights = install_lighting(instructions)
-    active_lights = count_light_lit(lights)
-    print(f"There are {active_lights} active lights")
+    lights = install_simple_lighting(instructions)
+    total_brightness = get_total_brightness(lights)
+    print(f"There are {total_brightness} active lights")
+
+    lights = install_lighting_with_brightness(instructions)
+    total_brightness = get_total_brightness(lights)
+    print(f"The total brightness is {total_brightness}")
 
 
 if __name__ == "__main__":
