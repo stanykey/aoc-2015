@@ -10,7 +10,7 @@ Language of choice: `Python 3.12`
 - [x] Day 3: Perfectly Spherical Houses in a Vacuum
 - [x] Day 4: The Ideal Stocking Stuffer
 - [x] Day 5: Doesn't He Have Intern-Elves For This?
-- [ ] Day 6
+- [ ] Day 6: Probably a Fire Hazard
 - [ ] Day 7
 - [ ] Day 8
 - [ ] Day 9
