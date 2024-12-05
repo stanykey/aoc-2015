@@ -12,7 +12,7 @@ Language of choice: `Python 3.12`
 - [x] Day 5: Doesn't He Have Intern-Elves For This?
 - [x] Day 6: Probably a Fire Hazard
 - [x] Day 7: Some Assembly Required
-- [ ] Day 8: Matchsticks
+- [x] Day 8: Matchsticks
 - [ ] Day 9
 - [ ] Day 10
 - [ ] Day 11
