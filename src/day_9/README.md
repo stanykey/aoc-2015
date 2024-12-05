@@ -44,3 +44,7 @@ For example, given the distances above, the longest route would be `982` via (fo
 `Dublin -> London -> Belfast`.
 
 What is the distance of the longest route?
+
+Your puzzle answer was `804`.
+
+*__Both parts of this puzzle are complete! They provide two gold stars: **__*

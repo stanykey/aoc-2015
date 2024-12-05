@@ -13,7 +13,7 @@ Language of choice: `Python 3.12`
 - [x] Day 6: Probably a Fire Hazard
 - [x] Day 7: Some Assembly Required
 - [x] Day 8: Matchsticks
-- [ ] Day 9: All in a Single Night
+- [x] Day 9: All in a Single Night
 - [ ] Day 10
 - [ ] Day 11
 - [ ] Day 12

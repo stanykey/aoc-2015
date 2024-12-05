@@ -1,5 +1,5 @@
 from collections import defaultdict
-from math import inf
+from collections.abc import Callable
 from pathlib import Path
 
 
@@ -22,70 +22,91 @@ def create_distance_matrix(records: list[tuple[str, str, int]]) -> dict[str, dic
     return matrix
 
 
-def find_shortest_path(matrix: dict[str, dict[str, int]]) -> tuple[list[str], int]:
-    locations = list(matrix.keys())
-    location_count = len(locations)
+class TravelingSalesperson:
+    def __init__(self, matrix: dict[str, dict[str, int]]):
+        self.locations = list(matrix.keys())
+        self.location_count = len(self.locations)
+        self.dist = self._create_distance_matrix(matrix)
 
-    # Create distance matrix
-    dist = [[inf] * location_count for _ in range(location_count)]
-    for i, loc1 in enumerate(locations):
-        for j, loc2 in enumerate(locations):
-            if loc2 in matrix[loc1]:
-                dist[i][j] = matrix[loc1][loc2]
+    def solve(self, comparison: Callable[[int, int], bool], initial_value: int) -> tuple[list[str], int]:
+        dp = [[initial_value] * self.location_count for _ in range(1 << self.location_count)]
+        parent = [[-1] * self.location_count for _ in range(1 << self.location_count)]
 
-    # DP table: dp[mask][i] -> Minimum distance to visit all nodes in `mask`, ending at `i`
-    dp = [[inf] * location_count for _ in range(1 << location_count)]
-    parent = [[-1] * location_count for _ in range(1 << location_count)]  # For reconstructing path
+        # Base case: start at each node
+        for i in range(self.location_count):
+            dp[1 << i][i] = 0
 
-    # Base case: start at each node
-    for i in range(location_count):
-        dp[1 << i][i] = 0
-
-    # Iterate over all subsets of nodes
-    for mask in range(1 << location_count):
-        for i in range(location_count):
-            if not (mask & (1 << i)):  # If `i` is not in the current subset
-                continue
-
-            for j in range(location_count):
-                if mask & (1 << j):  # If `j` is already visited
+        # Iterate over all subsets of nodes
+        for mask in range(1 << self.location_count):
+            for i in range(self.location_count):
+                if not (mask & (1 << i)):  # If `i` is not in the current subset
                     continue
 
-                new_mask = mask | (1 << j)
-                if dp[new_mask][j] > dp[mask][i] + dist[i][j]:
-                    dp[new_mask][j] = dp[mask][i] + dist[i][j]
-                    parent[new_mask][j] = i
+                for j in range(self.location_count):
+                    if mask & (1 << j):  # If `j` is already visited
+                        continue
 
-    # Find the shortest path
-    full_mask = (1 << location_count) - 1
-    min_distance = inf
-    end_node = -1
-    for i in range(location_count):
-        if dp[full_mask][i] < min_distance:
-            min_distance = dp[full_mask][i]
-            end_node = i
+                    new_mask = mask | (1 << j)
+                    new_distance = dp[mask][i] + self.dist[i][j]
+                    if comparison(new_distance, dp[new_mask][j]):
+                        dp[new_mask][j] = new_distance
+                        parent[new_mask][j] = i
 
-    # Reconstruct the path
-    mask = full_mask
-    path = []
-    while end_node != -1:
-        path.append(locations[end_node])
-        prev_node = parent[mask][end_node]
-        mask ^= 1 << end_node
-        end_node = prev_node
-    path.reverse()  # Reverse to get the correct order
+        # Find the optimal path
+        full_mask = (1 << self.location_count) - 1
+        optimal_value = initial_value
+        end_node = -1
+        for i in range(self.location_count):
+            if comparison(dp[full_mask][i], optimal_value):
+                optimal_value = dp[full_mask][i]
+                end_node = i
 
-    return path, int(min_distance)
+        # Reconstruct the path
+        mask = full_mask
+        path = []
+        while end_node != -1:
+            path.append(self.locations[end_node])
+            prev_node = parent[mask][end_node]
+            mask ^= 1 << end_node
+            end_node = prev_node
+        path.reverse()
+
+        return path, optimal_value
+
+    def _create_distance_matrix(self, matrix: dict[str, dict[str, int]]) -> list[list[int]]:
+        dist = [
+            [10**9] * self.location_count
+            for _ in range(self.location_count)  # Use a large integer as "infinity"
+        ]
+        for i, departure in enumerate(self.locations):
+            for j, arrival in enumerate(self.locations):
+                if arrival in matrix[departure]:
+                    dist[i][j] = matrix[departure][arrival]
+        return dist
+
+
+def find_shortest_path(matrix: dict[str, dict[str, int]]) -> tuple[list[str], int]:
+    tsp = TravelingSalesperson(matrix)
+    return tsp.solve(lambda x, y: x < y, 10**9)
+
+
+def find_longest_path(matrix: dict[str, dict[str, int]]) -> tuple[list[str], int]:
+    tsp = TravelingSalesperson(matrix)
+    return tsp.solve(lambda x, y: x > y, -(10**9))
 
 
 def main() -> None:
     data = load_distances(Path("input.data"))
+    distance_matrix = create_distance_matrix(data)
     # print(*data, sep="\n")
 
-    distance_matrix = create_distance_matrix(data)
     route, distance = find_shortest_path(distance_matrix)
-    print(*route, sep="->")
+    print(f"Shortest route: {'->'.join(route)}")
     print(f"The distance of the shortest route is {distance}")
+
+    route, distance = find_longest_path(distance_matrix)
+    print(f"Longest route: {'->'.join(route)}")
+    print(f"The distance of the longest route is {distance}")
 
 
 if __name__ == "__main__":
