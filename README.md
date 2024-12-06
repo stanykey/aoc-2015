@@ -14,7 +14,7 @@ Language of choice: `Python 3.12`
 - [x] Day 7: Some Assembly Required
 - [x] Day 8: Matchsticks
 - [x] Day 9: All in a Single Night
-- [ ] Day 10: Elves Look, Elves Say
+- [x] Day 10: Elves Look, Elves Say
 - [ ] Day 11
 - [ ] Day 12
 - [ ] Day 13

@@ -27,6 +27,9 @@ def main() -> None:
     number = dictate_number_with_repetition("1113222113", 40)
     print(f"The answer has a length of {len(str(number))} symbols.")
 
+    number = dictate_number_with_repetition("1113222113", 50)
+    print(f"The answer has a length of {len(str(number))} symbols.")
+
 
 if __name__ == "__main__":
     main()
