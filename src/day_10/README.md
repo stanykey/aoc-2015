@@ -17,3 +17,7 @@ For example:
 - `111221` becomes `312211` (three `1`s, two `2`s, and one `1`).
 
 Starting with the digits in your puzzle input, apply this process **40** times. What is the **length of the result**?
+
+Your puzzle answer was `252594`.
+
+*__The first half of this puzzle is complete! It provides one gold star: *__*
