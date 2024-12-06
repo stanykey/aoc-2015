@@ -30,3 +30,7 @@ For example:
   `ghi...`, since `i` is not allowed.
 
 Given Santa's current password (your puzzle input), what should his **next password** be?
+
+Your puzzle answer was `hepxxyzz`.
+
+*__The first half of this puzzle is complete! It provides one gold star: *__*

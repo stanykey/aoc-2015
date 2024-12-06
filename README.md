@@ -15,7 +15,7 @@ Language of choice: `Python 3.12`
 - [x] Day 8: Matchsticks
 - [x] Day 9: All in a Single Night
 - [x] Day 10: Elves Look, Elves Say
-- [ ] Day 11
+- [ ] Day 11: Corporate Policy
 - [ ] Day 12
 - [ ] Day 13
 - [ ] Day 14
