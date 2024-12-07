@@ -16,7 +16,7 @@ Language of choice: `Python 3.12`
 - [x] Day 9: All in a Single Night
 - [x] Day 10: Elves Look, Elves Say
 - [x] Day 11: Corporate Policy
-- [ ] Day 12: JSAbacusFramework.io
+- [x] Day 12: JSAbacusFramework.io
 - [ ] Day 13
 - [ ] Day 14
 - [ ] Day 15
