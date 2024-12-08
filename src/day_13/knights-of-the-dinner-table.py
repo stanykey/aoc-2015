@@ -44,10 +44,32 @@ def find_optimal_arrangement(happiness_changes: dict[tuple[str, str], int]) -> i
     return max_happiness
 
 
+def find_optimal_arrangement_with_me(happiness_changes: dict[tuple[str, str], int]) -> int:
+    """
+    Find the optimal seating arrangement for maximum happiness with me.
+    """
+    happiness_changes = happiness_changes.copy()
+    attendees = set(person for pair in happiness_changes.keys() for person in pair)
+    for attendee in attendees:
+        happiness_changes[("me", attendee)] = 0
+        happiness_changes[(attendee, "me")] = 0
+    attendees.add("me")
+
+    max_happiness = -1_000_000_000
+    for arrangement in permutations(attendees):
+        happiness = calculate_happiness(arrangement, happiness_changes)
+        max_happiness = max(max_happiness, happiness)
+    return max_happiness
+
+
 def main() -> None:
     file_path = Path("input.data")
     happiness_changes = parse_input(file_path)
+
     optimal_happiness = find_optimal_arrangement(happiness_changes)
+    print(f"The total change in happiness for the optimal seating arrangement is {optimal_happiness}")
+
+    optimal_happiness = find_optimal_arrangement_with_me(happiness_changes)
     print(f"The total change in happiness for the optimal seating arrangement is {optimal_happiness}")
 
 

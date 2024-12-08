@@ -57,3 +57,7 @@ else would be just as ambivalent about sitting next to you, too.
 So, add yourself to the list, and give all happiness relationships that involve you a score of 0.
 
 What is the **total change in happiness** for the optimal seating arrangement that actually includes yourself?
+
+Your puzzle answer was `640`.
+
+*__Both parts of this puzzle are complete! They provide two gold stars: **__*
