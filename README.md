@@ -17,7 +17,7 @@ Language of choice: `Python 3.12`
 - [x] Day 10: Elves Look, Elves Say
 - [x] Day 11: Corporate Policy
 - [x] Day 12: JSAbacusFramework.io
-- [ ] Day 13
+- [ ] Day 13: Knights of the Dinner Table
 - [ ] Day 14
 - [ ] Day 15
 - [ ] Day 16

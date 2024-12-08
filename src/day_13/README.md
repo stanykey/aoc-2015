@@ -43,3 +43,7 @@ After trying every other seating arrangement in this hypothetical scenario, you 
 with a total change in happiness of 330.
 
 What is the **total change in happiness** for the optimal seating arrangement of the actual guest list?
+
+Your puzzle answer was `664`.
+
+*__The first half of this puzzle is complete! It provides one gold star: *__*
