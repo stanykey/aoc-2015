@@ -45,3 +45,7 @@ with the new scoring system, Dancer would win (if the race ended at 1000 seconds
 
 Again given the descriptions of each reindeer (in your puzzle input), after exactly 2503 seconds, **how many points does
 the winning reindeer have**?
+
+Your puzzle answer was `1256`.
+
+*__Both parts of this puzzle are complete! They provide two gold stars: **__*

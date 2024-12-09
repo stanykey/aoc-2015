@@ -18,7 +18,7 @@ Language of choice: `Python 3.12`
 - [x] Day 11: Corporate Policy
 - [x] Day 12: JSAbacusFramework.io
 - [x] Day 13: Knights of the Dinner Table
-- [ ] Day 14: Reindeer Olympics
+- [x] Day 14: Reindeer Olympics
 - [ ] Day 15
 - [ ] Day 16
 - [ ] Day 17
