@@ -22,3 +22,7 @@ seconds).
 
 Given the descriptions of each reindeer (in your puzzle input), after exactly `2503` seconds, **what distance has the
 winning reindeer traveled**?
+
+Your puzzle answer was `2660`.
+
+*__The first half of this puzzle is complete! It provides one gold star: *__*
