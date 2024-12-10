@@ -38,3 +38,7 @@ would have instead become zero, causing the whole score to multiply to zero.
 
 Given the ingredients in your kitchen and their properties, what is the **total score** of the highest-scoring cookie
 you can make?
+
+Your puzzle answer was `222870`.
+
+*__The first half of this puzzle is complete! It provides one gold star: *__*
