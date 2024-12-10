@@ -55,3 +55,7 @@ down, though: only `57600000`, the best you can do in such trying circumstances.
 
 Given the ingredients in your kitchen and their properties, what is the **total score** of the highest-scoring cookie
 you can make with a calorie total of `500`?
+
+Your puzzle answer was `117936`.
+
+*__Both parts of this puzzle are complete! They provide two gold stars: **__*

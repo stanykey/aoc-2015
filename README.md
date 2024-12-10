@@ -19,7 +19,7 @@ Language of choice: `Python 3.12`
 - [x] Day 12: JSAbacusFramework.io
 - [x] Day 13: Knights of the Dinner Table
 - [x] Day 14: Reindeer Olympics
-- [ ] Day 15: Science for Hungry People
+- [x] Day 15: Science for Hungry People
 - [ ] Day 16
 - [ ] Day 17
 - [ ] Day 18

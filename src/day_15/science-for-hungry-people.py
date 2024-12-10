@@ -51,9 +51,13 @@ def make_proportion_generator(ingredient_count: int, total_amount: int) -> Itera
             yield (i,) + sub_combination
 
 
-def find_best_cookie_score(ingredients: List[Ingredient], teaspoons: int) -> int:
+def find_best_cookie_score(ingredients: List[Ingredient], teaspoons: int, requested_calories: int | None = None) -> int:
     best_score = 0
     for proportions in make_proportion_generator(len(ingredients), teaspoons):
+        calories = sum(ingredients[i].calories * proportions[i] for i in range(len(ingredients)))
+        if requested_calories is not None and requested_calories != calories:
+            continue
+
         capacity = sum(ingredients[i].capacity * proportions[i] for i in range(len(ingredients)))
         durability = sum(ingredients[i].durability * proportions[i] for i in range(len(ingredients)))
         flavor = sum(ingredients[i].flavor * proportions[i] for i in range(len(ingredients)))
@@ -81,6 +85,11 @@ def main() -> None:
     teaspoons = 100
     best_cookie_score = find_best_cookie_score(ingredients, teaspoons)
     print(f"The highest cookie score is {best_cookie_score}")
+
+    teaspoons = 100
+    requested_calories = 500
+    best_cookie_score = find_best_cookie_score(ingredients, teaspoons, requested_calories)
+    print(f"The highest cookie score is {best_cookie_score} with exactly {requested_calories} calories.")
 
 
 if __name__ == "__main__":
