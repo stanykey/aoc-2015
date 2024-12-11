@@ -20,7 +20,7 @@ Language of choice: `Python 3.12`
 - [x] Day 13: Knights of the Dinner Table
 - [x] Day 14: Reindeer Olympics
 - [x] Day 15: Science for Hungry People
-- [ ] Day 16: Aunt Sue
+- [x] Day 16: Aunt Sue
 - [ ] Day 17
 - [ ] Day 18
 - [ ] Day 19

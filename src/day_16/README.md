@@ -58,3 +58,7 @@ unpredictable nuclear decay of cat dander and tree pollen), while the pomeranian
 there are **fewer than** that many (due to the modial interaction of magnetoreluctance).
 
 What is the **number** of the real Aunt Sue?
+
+Your puzzle answer was `323`.
+
+*__Both parts of this puzzle are complete! They provide two gold stars: **__*

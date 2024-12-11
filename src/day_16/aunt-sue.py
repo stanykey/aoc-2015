@@ -1,3 +1,4 @@
+from collections.abc import Callable
 from dataclasses import dataclass
 from pathlib import Path
 from typing import List
@@ -36,20 +37,48 @@ def load_sue_records(file_path: Path) -> List[Sue]:
         return [Sue.from_str(record.strip()) for record in file]
 
 
-def matches(aim: Sue, sue: Sue) -> bool:
+def default_matcher(aim: Sue, sue: Sue) -> bool:
     """Check if a given Sue matches the aim Sue. Only compare known attributes."""
     for attr, aim_value in aim.__dict__.items():
         if attr == "id":
             continue
+
         sue_value = getattr(sue, attr)
         if sue_value is not None and sue_value != aim_value:
             return False
     return True
 
 
-def find_matching_sue(aim: Sue, sues: List[Sue]) -> Sue | None:
+def magic_rules_matcher(aim: Sue, sue: Sue) -> bool:
+    """
+    Check if a given Sue matches the aim Sue using Part Two conditions.
+    - `cats` and `trees`: greater than the value in `aim`.
+    - `pomeranians` and `goldfish`: less than the value in `aim`.
+    - All other attributes: equal to the value in `aim`.
+    """
+    for attr, aim_value in aim.__dict__.items():
+        if attr == "id":
+            continue
+
+        sue_value = getattr(sue, attr)
+        if sue_value is None:
+            continue
+
+        if attr in {"cats", "trees"}:
+            if sue_value <= aim_value:
+                return False
+        elif attr in {"pomeranians", "goldfish"}:
+            if sue_value >= aim_value:
+                return False
+        else:
+            if sue_value != aim_value:
+                return False
+    return True
+
+
+def find_matching_sue(aim: Sue, sues: List[Sue], matcher: Callable[[Sue, Sue], bool] = default_matcher) -> Sue | None:
     for sue in sues:
-        if matches(aim, sue):
+        if matcher(aim, sue):
             return sue
     return None
 
@@ -57,8 +86,8 @@ def find_matching_sue(aim: Sue, sues: List[Sue]) -> Sue | None:
 def main() -> None:
     file_path = Path("input.data")
     sues = load_sue_records(file_path)
-    print("Loaded Sue Records:")
-    print(*sues, sep="\n")
+    # print("Loaded Sue Records:")
+    # print(*sues, sep="\n")
 
     aim = Sue(
         id=0,
@@ -74,6 +103,9 @@ def main() -> None:
         perfumes=1,
     )
     if sue := find_matching_sue(aim, sues):
+        print(f"Sue #{sue.id} got your gift!")
+
+    if sue := find_matching_sue(aim, sues, magic_rules_matcher):
         print(f"Sue #{sue.id} got your gift!")
 
 
