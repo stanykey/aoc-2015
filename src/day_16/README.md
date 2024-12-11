@@ -42,3 +42,7 @@ You make a list of the things you can remember about each Aunt Sue. Things missi
 simply don't remember the value.
 
 What is the **number** of the Sue that got you the gift?
+
+Your puzzle answer was `213`.
+
+*__The first half of this puzzle is complete! It provides one gold star: *__*
