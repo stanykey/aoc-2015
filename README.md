@@ -21,7 +21,7 @@ Language of choice: `Python 3.12`
 - [x] Day 14: Reindeer Olympics
 - [x] Day 15: Science for Hungry People
 - [x] Day 16: Aunt Sue
-- [ ] Day 17: No Such Thing as Too Much
+- [x] Day 17: No Such Thing as Too Much
 - [ ] Day 18
 - [ ] Day 19
 - [ ] Day 20

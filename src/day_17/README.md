@@ -29,3 +29,7 @@ you fill that number of containers and still hold exactly `150` litres?
 
 In the example above, the minimum number of containers was two. There were three ways to use that many containers, and
 so the answer there would be 3.
+
+Your puzzle answer was `57`.
+
+*__Both parts of this puzzle are complete! They provide two gold stars: **__*
