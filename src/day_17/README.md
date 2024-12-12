@@ -14,3 +14,7 @@ liters, there are four ways to do it:
 
 Filling all containers entirely, how many different **combinations of containers** can exactly fit all `150` liters of
 eggnog?
+
+Your puzzle answer was `654`.
+
+*__The first half of this puzzle is complete! It provides one gold star: *__*
