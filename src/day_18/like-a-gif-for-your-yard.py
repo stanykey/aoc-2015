@@ -20,8 +20,7 @@ def count_neighbors_on(grid: list[list[bool]], row: int, col: int) -> int:
 
 
 def animate(grid: list[list[bool]]) -> list[list[bool]]:
-    rows = len(grid)
-    cols = len(grid[0])
+    rows, cols = len(grid), len(grid[0])
     next_grid = [[False] * cols for _ in range(rows)]
     for row in range(rows):
         for col in range(cols):
@@ -35,12 +34,26 @@ def animate(grid: list[list[bool]]) -> list[list[bool]]:
     return next_grid
 
 
+def enforce_corners_on(grid: list[list[bool]]) -> None:
+    rows, cols = len(grid), len(grid[0])
+    grid[0][0] = True
+    grid[0][cols - 1] = True
+    grid[rows - 1][0] = True
+    grid[rows - 1][cols - 1] = True
+
+
 def run_animation(grid: list[list[bool]], count: int) -> tuple[int, list[list[bool]]]:
     for _ in range(count):
         grid = animate(grid)
+    return sum(sum(row) for row in grid), grid
 
-    total_lights_on = sum(sum(row) for row in grid)
-    return total_lights_on, grid
+
+def run_animation_with_corners(grid: list[list[bool]], steps: int) -> tuple[int, list[list[bool]]]:
+    enforce_corners_on(grid)  # Enforce corners at the start
+    for _ in range(steps):
+        grid = animate(grid)
+        enforce_corners_on(grid)  # Enforce corners after each step
+    return sum(sum(row) for row in grid), grid
 
 
 def main() -> None:
@@ -48,7 +61,10 @@ def main() -> None:
     lights_configuration = load_lights_configuration(file_path)
 
     steps = 100
-    total_lights_on, lights_configuration = run_animation(lights_configuration, steps)
+    total_lights_on, _ = run_animation(lights_configuration, steps)
+    print(f"After {steps} steps, there are {total_lights_on} lights on.")
+
+    total_lights_on, _ = run_animation_with_corners(lights_configuration, steps)
     print(f"After {steps} steps, there are {total_lights_on} lights on.")
 
 
