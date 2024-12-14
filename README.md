@@ -25,7 +25,7 @@ Language of choice: `Python 3.12`
 - [x] Day 17: No Such Thing as Too Much
 - [x] Day 18: Like a GIF For Your Yard
 - [x] Day 19: Medicine for Rudolph
-- [ ] Day 20: Infinite Elves and Infinite Houses
+- [x] Day 20: Infinite Elves and Infinite Houses
 - [ ] Day 21
 - [ ] Day 22
 - [ ] Day 23

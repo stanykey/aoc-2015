@@ -43,3 +43,7 @@ each house.
 
 With these changes, what is the new **lowest house number** of the house to get at least as many presents as the number
 in your puzzle input?
+
+Your puzzle answer was `786240`.
+
+*__Both parts of this puzzle are complete! They provide two gold stars: **__*

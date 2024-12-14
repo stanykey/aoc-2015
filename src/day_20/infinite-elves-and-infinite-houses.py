@@ -6,19 +6,20 @@ def read_input(path: Path) -> int:
         return int(file.read().strip())
 
 
-def sum_of_divisors_sieve(limit: int) -> list[int]:
-    divisors = [0] * (limit + 1)
-    for i in range(1, limit + 1):
-        for j in range(i, limit + 1, i):
-            divisors[j] += i
-    return divisors
+def find_lowest_house(target: int, delivery_count: int, max_visits: int | None = None) -> int:
+    max_houses = target // delivery_count  # rough estimate for the upper bound
 
+    divisors = [0] * (max_houses + 1)
+    for elf in range(1, max_houses + 1):
+        count = 0
+        for house in range(elf, max_houses + 1, elf):
+            divisors[house] += elf
+            count += 1
+            # apply the max_visits limit if provided
+            if max_visits is not None and count >= max_visits:
+                break
 
-def find_lowest_house(target: int, delivery_count: int) -> int:
-    max_houses = target // 10  # Rough estimate for the upper bound
-    divisors = sum_of_divisors_sieve(max_houses)
-
-    # presents delivered to each house
+    # find the first house that meets or exceeds the target presents
     for house, divisor_sum in enumerate(divisors):
         if delivery_count * divisor_sum >= target:
             return house
@@ -31,6 +32,9 @@ def main() -> None:
     puzzle_input = read_input(file_path)
 
     result = find_lowest_house(puzzle_input, 10)
+    print(f"The lowest house number to get at least {puzzle_input} presents is: {result}")
+
+    result = find_lowest_house(puzzle_input, delivery_count=11, max_visits=50)
     print(f"The lowest house number to get at least {puzzle_input} presents is: {result}")
 
 
