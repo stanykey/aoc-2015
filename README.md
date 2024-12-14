@@ -3,6 +3,7 @@
 Language of choice: `Python 3.12`
 
 ---
+
 ## Puzzles
 
 - [x] Day 1: Not Quite Lisp
@@ -23,7 +24,7 @@ Language of choice: `Python 3.12`
 - [x] Day 16: Aunt Sue
 - [x] Day 17: No Such Thing as Too Much
 - [x] Day 18: Like a GIF For Your Yard
-- [ ] Day 19
+- [ ] Day 19: Medicine for Rudolph
 - [ ] Day 20
 - [ ] Day 21
 - [ ] Day 22
