@@ -30,3 +30,7 @@ The first house gets `10` presents: it is visited only by Elf `1`, which deliver
 house gets `70` presents, because it is visited by Elves `1`, `2`, and `4`, for a total of `10 + 20 + 40 = 70` presents.
 
 What is the **lowest house number** of the house to get at least as many presents as the number in your puzzle input?
+
+Your puzzle answer was `776160`.
+
+*__The first half of this puzzle is complete! It provides one gold star: *__*
