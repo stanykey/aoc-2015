@@ -27,13 +27,35 @@ def generate_replacements(replacements: list[tuple[str, str]], molecule: str) ->
     return distinct_molecules
 
 
+def find_fewest_steps(replacements: list[tuple[str, str]], molecule: str) -> int:
+    reverse_replacements = [(target, source) for source, target in replacements]
+    reverse_replacements.sort(key=lambda x: -len(x[0]))  # sort by target length descending for greedy match
+
+    steps = 0
+    while molecule != "e":
+        for target, source in reverse_replacements:
+            if target in molecule:
+                # replace the first occurrence of `target` with `source`
+                molecule = molecule.replace(target, source, 1)
+                steps += 1
+                break
+        else:
+            # if no replacement can be applied, it's an error
+            raise ValueError("Unable to reduce molecule to 'e'")
+    return steps
+
+
 def main() -> None:
     file_path = Path("input.data")
     replacements, molecule = parse_input(file_path)
 
-    # Generate distinct molecules after one replacement
+    # generate distinct molecules after one replacement
     distinct_molecules = generate_replacements(replacements, molecule)
     print(f"Number of distinct molecules: {len(distinct_molecules)}")
+
+    # find the fewest steps to reduce the molecule to `e`
+    fewest_steps = find_fewest_steps(replacements, molecule)
+    print(f"The fewest number of steps to fabricate the medicine is: {fewest_steps}")
 
 
 if __name__ == "__main__":
