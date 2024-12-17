@@ -119,12 +119,25 @@ def find_minimum_gold_to_win(boss: Player, shop: dict[ItemType, list[Item]]) -> 
     return min_gold
 
 
+def find_maximum_gold_to_lose(boss: Player, shop: dict[ItemType, list[Item]]) -> int:
+    max_gold = 0
+    for items in generate_item_combinations(shop):
+        total_cost = sum(item.cost for item in items)
+        player = Player.make_player("Hero", hitpoints=100, base_damage=0, base_armor=0, items=items)
+        if not fight(player, Player("Boss", boss.hitpoints, boss.damage, boss.armor)):
+            max_gold = max(max_gold, total_cost)
+    return max_gold
+
+
 def main() -> None:
     shop = load_shop()
 
     boss = Player.make_player("Boss", hitpoints=103, base_damage=9, base_armor=2)
     minimum_cost = find_minimum_gold_to_win(boss, shop)
     print(f"The least amount of gold to win the fight is: {minimum_cost}")
+
+    maximum_cost = find_maximum_gold_to_lose(boss, shop)
+    print(f"The most amount of gold you can spend and still lose is: {maximum_cost}")
 
 
 if __name__ == "__main__":

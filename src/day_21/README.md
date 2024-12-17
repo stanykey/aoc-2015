@@ -72,3 +72,7 @@ Turns out the shopkeeper is working with the boss, and can persuade you to buy w
 still apply, and he still only has one of each item.
 
 What is the **most** amount of gold you can spend and still **lose** the fight?
+
+Your puzzle answer was `201`.
+
+*__Both parts of this puzzle are complete! They provide two gold stars: **__*
