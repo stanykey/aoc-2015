@@ -58,7 +58,14 @@ def apply_effects(player: Player, boss: Player, effects: List[Effect]) -> None:
         effects.remove(effect)
 
 
-def simulate_turn(player: Player, boss: Player, spell: Spell, effects: List[Effect], mana_spent: int) -> Optional[int]:
+def simulate_turn(
+    player: Player, boss: Player, spell: Spell, effects: List[Effect], mana_spent: int, hard_mode: bool
+) -> Optional[int]:
+    if hard_mode:
+        player.hitpoints -= 1
+        if player.hitpoints <= 0:
+            return None
+
     # Player's turn: Apply effects and cast spell
     apply_effects(player, boss, effects)
 
@@ -98,7 +105,7 @@ def simulate_turn(player: Player, boss: Player, spell: Spell, effects: List[Effe
     return mana_spent
 
 
-def find_least_mana_to_win(player: Player, boss: Player, spells: List[Spell]) -> int:
+def find_least_mana_to_win(player: Player, boss: Player, spells: List[Spell], *, hard_mode: bool) -> int:
     min_mana = 1_000_000_000
 
     def dfs(player: Player, boss: Player, effects: List[Effect], mana_spent: int) -> None:
@@ -112,7 +119,7 @@ def find_least_mana_to_win(player: Player, boss: Player, spells: List[Spell]) ->
             new_boss = Player(boss.hitpoints, boss.mana, boss.damage, boss.armor)
             new_effects = [Effect(effect.spell, effect.remaining_turns) for effect in effects]
 
-            result = simulate_turn(new_player, new_boss, spell, new_effects, mana_spent)
+            result = simulate_turn(new_player, new_boss, spell, new_effects, mana_spent, hard_mode)
 
             if result is not None:
                 if new_boss.hitpoints <= 0:
@@ -130,8 +137,11 @@ def main() -> None:
     player = Player(hitpoints=50, mana=500)
     boss = Player(hitpoints=58, mana=0, damage=9)
 
-    least_mana = find_least_mana_to_win(player, boss, spells)
+    least_mana = find_least_mana_to_win(player, boss, spells, hard_mode=False)
     print(f"The least amount of mana to win the fight is: {least_mana}")
+
+    least_mana = find_least_mana_to_win(player, boss, spells, hard_mode=True)
+    print(f"The least amount of mana to win the fight in hard mode is: {least_mana}")
 
 
 if __name__ == "__main__":
