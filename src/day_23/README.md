@@ -33,3 +33,7 @@ inc a
 ```
 
 What is **the value in register b** when the program in your puzzle input is finished executing?
+
+Your puzzle answer was `255`.
+
+*__The first half of this puzzle is complete! It provides one gold star: *__*

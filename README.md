@@ -28,7 +28,7 @@ Language of choice: `Python 3.12`
 - [x] Day 20: Infinite Elves and Infinite Houses
 - [x] Day 21: RPG Simulator 20XX
 - [x] Day 22: Wizard Simulator 20XX
-- [ ] Day 23
+- [ ] Day 23: Opening the Turing Lock
 - [ ] Day 24
 - [ ] Day 25
 
