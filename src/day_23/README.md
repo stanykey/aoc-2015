@@ -37,3 +37,9 @@ What is **the value in register b** when the program in your puzzle input is fin
 Your puzzle answer was `255`.
 
 *__The first half of this puzzle is complete! It provides one gold star: *__*
+
+## Part Two
+
+The unknown benefactor is **very** thankful for releasi-- er, helping little Jane Marie with her computer. Definitely
+not to distract you, what is the value in register `b` after the program is finished executing if register `a` starts as
+`1` instead?
