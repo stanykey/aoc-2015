@@ -130,3 +130,7 @@ Now, suppose the same initial conditions, except that the boss has `14` hit poin
 You start with **50 hit points** and **500 mana points**. The boss's actual stats are in your puzzle input. What is the
 **least amount of mana** you can spend and still win the fight? (Do not include mana recharge effects as "spending"
 negative mana.)
+
+Your puzzle answer was `1269`.
+
+*__The first half of this puzzle is complete! It provides one gold star: *__*
