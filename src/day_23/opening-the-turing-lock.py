@@ -7,7 +7,14 @@ from enum import unique
 from pathlib import Path
 from typing import Self
 
-type Computer = defaultdict[str, int]
+type Computer = dict[str, int]
+
+
+def make_computer(a: int, b: int) -> Computer:
+    computer = defaultdict(int)
+    computer["a"] = a
+    computer["b"] = b
+    return computer
 
 
 @unique
@@ -29,14 +36,14 @@ class Operand:
 class Instruction:
     opcode: OpCode
     operand1: Operand
-    operand2: Operand | None = None
+    operand2: Operand
 
     @classmethod
     def from_str(cls, line: str) -> Self:
         parts = line.replace(",", "").split()
         opcode = OpCode(parts[0])
         operand1 = Operand(parts[1])
-        operand2 = Operand(parts[2]) if len(parts) > 2 else None
+        operand2 = Operand(parts[2] if len(parts) > 2 else "")
         return cls(opcode, operand1, operand2)
 
 
@@ -81,15 +88,13 @@ class Program:
     @staticmethod
     def __jie(instruction: Instruction, computer: Computer) -> int:
         if computer[instruction.operand1.value] % 2 == 0:
-            if instruction.operand2 is not None:
-                return int(instruction.operand2.value)
+            return int(instruction.operand2.value)
         return 1
 
     @staticmethod
     def __jio(instruction: Instruction, computer: Computer) -> int:
         if computer[instruction.operand1.value] == 1:
-            if instruction.operand2 is not None:
-                return int(instruction.operand2.value)
+            return int(instruction.operand2.value)
         return 1
 
 
@@ -103,7 +108,11 @@ def main() -> None:
     instructions = load_assembly(path)
     program = Program(instructions)
 
-    computer: Computer = defaultdict(int)
+    computer = make_computer(0, 0)
+    program.execute(computer)
+    print(f"The value of registers: a = {computer['a']}, b = {computer['b']}")
+
+    computer = make_computer(1, 0)
     program.execute(computer)
     print(f"The value of registers: a = {computer['a']}, b = {computer['b']}")
 
