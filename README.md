@@ -30,6 +30,6 @@ Language of choice: `Python 3.12`
 - [x] Day 22: Wizard Simulator 20XX
 - [x] Day 23: Opening the Turing Lock
 - [x] Day 24: It Hangs in the Balance
-- [ ] Day 25
+- [ ] Day 25: Let It Snow
 
 ---

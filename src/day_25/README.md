@@ -65,3 +65,7 @@ disconnects.
 
 Santa looks nervous. Your puzzle input contains the message on the machine's console. **What code do you give the
 machine?**
+
+Your puzzle answer was `9132360`.
+
+*__The first half of this puzzle is complete! It provides one gold star: *__*
