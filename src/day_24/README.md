@@ -47,3 +47,7 @@ for the ideal configuration is therefore `99`. Had there been two configurations
 group, the one with the smaller quantum entanglement would be chosen.
 
 What is the **quantum entanglement** of the first group of packages in the ideal configuration?
+
+Your puzzle answer was `11846773891`.
+
+*__The first half of this puzzle is complete! It provides one gold star: *__*
