@@ -29,7 +29,7 @@ Language of choice: `Python 3.12`
 - [x] Day 21: RPG Simulator 20XX
 - [x] Day 22: Wizard Simulator 20XX
 - [x] Day 23: Opening the Turing Lock
-- [ ] Day 24: It Hangs in the Balance
+- [x] Day 24: It Hangs in the Balance
 - [ ] Day 25
 
 ---

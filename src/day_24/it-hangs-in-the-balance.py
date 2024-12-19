@@ -31,7 +31,7 @@ def distribute_packages(weights: tuple[int, ...], group_count: int) -> tuple[int
     return tuple()  # no valid combo found
 
 
-def find_best_quantum_entanglement(packages: tuple[int, ...], group_count: int) -> int:
+def find_best_quantum_entanglement(packages: tuple[int, ...], *, group_count: int) -> int:
     best_bag = distribute_packages(packages, group_count)
     return find_quantum_entanglement(best_bag)
 
@@ -41,8 +41,10 @@ def main() -> None:
     packages = load_packages(path)
     print(packages)
 
-    group_count = 3
-    best_quantum_entanglement = find_best_quantum_entanglement(packages, group_count)
+    best_quantum_entanglement = find_best_quantum_entanglement(packages, group_count=3)
+    print(f"Best quantum entanglement: {best_quantum_entanglement}")
+
+    best_quantum_entanglement = find_best_quantum_entanglement(packages, group_count=4)
     print(f"Best quantum entanglement: {best_quantum_entanglement}")
 
 

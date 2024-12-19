@@ -77,3 +77,7 @@ Of these, there are three arrangements that put the minimum (two) number of pack
 and `8 7`. Of these, `11 4` has the lowest quantum entanglement, and so it is selected.
 
 Now, what is the **quantum entanglement** of the first group of packages in the ideal configuration?
+
+Your puzzle answer was `80393059`.
+
+*__Both parts of this puzzle are complete! They provide two gold stars: **__*
