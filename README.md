@@ -1,6 +1,17 @@
 # [Advent of Code 2015](https://adventofcode.com/2015)
 
-Language of choice: `Python 3.12`
+I've done that year's (2015) challenges for fun and to refresh memory about some of the basic algorithms and approaches
+without deep performance optimization since I prefer idiomatic and readable code until it really needs to be much
+faster, so most of the solutions are quick enough to do a job in seconds under default CPython.
+
+### Rules:
+
+- `Python 3.12`
+- `Built-in only`
+- `PEP8`
+- `Type hinting`
+- Linters ([Ruff](https://docs.astral.sh/ruff/) and [MyPy](https://mypy.readthedocs.io/en/stable/)
+  via [pre-commit](https://pre-commit.com/index.html))
 
 ---
 
