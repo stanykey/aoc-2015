@@ -15,6 +15,8 @@ faster, so most of the solutions are quick enough to do a job in seconds under d
 
 ---
 
+![My Image](./fifty-stars.png)
+
 ## Puzzles
 
 - [x] Day 1: Not Quite Lisp
